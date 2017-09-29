@@ -1,5 +1,5 @@
 applications:
- - name: iot-hub-ui-app
+ - name: iot-hub-ui-app-shared-new
    memory: 16M
    disk_quota: 16M
    instances: 1
