@@ -1,14 +1,40 @@
 <mvc:View
 	controllerName="iot.hub.ui.controller.App"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:tnt="sap.tnt"
 	displayBlock="true"
 	xmlns="sap.m">
 	<App id="app">
 		<pages>
 			<Page
 				id="page"
+				showHeader="true"
+				showFooter="true"
 				title="{i18n>title}">
-				<content></content>
+				<customHeader>
+					<tnt:ToolHeader id="pageHeader">
+						<Button text="button up"/>
+					</tnt:ToolHeader>
+				</customHeader>
+				<content>
+					<HBox>
+						<Toolbar id="leftToolbar" width="250px">
+							<ToolbarSpacer/>
+							<SearchField/>
+						</Toolbar>
+						<ScrollContainer id="mainContent" horizontal="false" vertical="true" height="100%">
+							<content>
+								<Text text="details page with scroll"/>	
+							</content>
+						</ScrollContainer>
+					</HBox>
+				</content>
+				<footer>
+					<tnt:ToolHeader id="pageFooter">
+						<ToolbarSpacer/>
+						<Button text="button down"/>
+					</tnt:ToolHeader>
+				</footer>
 			</Page>
 		</pages>
 	</App>
