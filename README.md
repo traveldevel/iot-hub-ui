@@ -20,6 +20,6 @@ https://stackoverflow.com/questions/37474958/creation-of-login-page-along-with-a
 
 6. Open : [http://localhost:8080](http://localhost:8080)
 
-7. Copy `manifest.yml` to `dist` folder and change directory `cd dist`. 
+7. Copy 'manifest.yml' to 'dist' folder and change directory `cp .\manifest.yml .\dist\` and `cd dist`
 
 8. Run `cf push` (after `cf api`, `cf login`...)
