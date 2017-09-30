@@ -1,41 +1,71 @@
 <mvc:View
 	controllerName="iot.hub.ui.controller.App"
+	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:tnt="sap.tnt"
 	displayBlock="true"
 	xmlns="sap.m">
 	<App id="app">
 		<pages>
-			<Page
+			<tnt:ToolPage
 				id="page"
 				showHeader="true"
 				showFooter="true"
 				title="{i18n>title}">
-				<customHeader>
+				<tnt:header>
 					<tnt:ToolHeader id="pageHeader">
-						<Button text="button up"/>
-					</tnt:ToolHeader>
-				</customHeader>
-				<content>
-					<HBox>
-						<Toolbar id="leftToolbar" width="250px">
-							<ToolbarSpacer/>
-							<SearchField/>
-						</Toolbar>
-						<ScrollContainer id="mainContent" horizontal="false" vertical="true" height="100%">
-							<content>
-								<Text text="details page with scroll"/>	
-							</content>
-						</ScrollContainer>
-					</HBox>
-				</content>
-				<footer>
-					<tnt:ToolHeader id="pageFooter">
+						<Button icon="sap-icon://menu2" type="Transparent"/>
+						<Label text="IoT Hub Admin"/>
 						<ToolbarSpacer/>
-						<Button text="button down"/>
-					</tnt:ToolHeader>
-				</footer>
-			</Page>
+						<Button icon="sap-icon://message-popup" type="Transparent" text="Notifications"/>
+					</tnt:ToolHeader>				
+				</tnt:header>
+				<tnt:sideContent>				
+					<tnt:SideNavigation expanded="true" itemSelect="onItemSelect">
+						<tnt:NavigationList items="{path: '/navigation'}">
+							<tnt:NavigationListItem text="{title}"
+													icon="{icon}"
+													enabled="{enabled}"
+													expanded="{expanded}"
+													items="{items}"
+													key="{key}">
+								<tnt:NavigationListItem text="{title}"
+														key="{key}"
+														enabled="{enabled}">
+								</tnt:NavigationListItem>
+							</tnt:NavigationListItem>
+						</tnt:NavigationList>
+						<tnt:fixedItem>
+							<tnt:NavigationList>
+								<tnt:NavigationListItem text="Account" icon="sap-icon://account"/>
+								<tnt:NavigationListItem text="App Help" icon="sap-icon://sys-help"/>
+								<tnt:NavigationListItem text="Logout" icon="sap-icon://log"/>
+							</tnt:NavigationList>
+						</tnt:fixedItem>
+					</tnt:SideNavigation>				
+				</tnt:sideContent>
+				<tnt:mainContents>
+					<VBox>
+						<HBox>
+							<HBox>
+								<Button icon="sap-icon://home" text="Home" type="Transparent"/>
+								<Button text=">" type="Transparent" enabled="false"/>
+							</HBox>	
+							<HBox>
+								<Button icon="sap-icon://washing-machine" text="Devices" type="Transparent"/>
+							</HBox>								
+						</HBox>
+						<ScrollContainer id="root1"
+								horizontal="false"
+								vertical="true"
+								height="100%">
+							<VBox>
+								<Text text="details page with scroll"/>	
+							</VBox>
+						</ScrollContainer>
+					</VBox>
+				</tnt:mainContents>
+			</tnt:ToolPage>
 		</pages>
 	</App>
 </mvc:View>
