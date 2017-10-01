@@ -1,0 +1,18 @@
+<mvc:View
+	controllerName="iot.hub.ui.controller.Page1"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m">
+    <Page showHeader="false">
+        <content>
+            <ScrollContainer
+                    horizontal="false"
+                    vertical="true"
+                    height="100%">
+                    <content>
+                        <Text text="Text 1"/>
+                    </content>
+            </ScrollContainer>
+        </content>
+    </Page>
+</mvc:View>

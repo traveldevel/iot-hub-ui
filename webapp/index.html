@@ -20,12 +20,13 @@
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "iot.hub.ui"
-					})
-				}).placeAt("content");
+
+				var newApp = new sap.ui.core.ComponentContainer({
+					height : "100%",
+					name : "iot.hub.ui"
+				});
+
+				new sap.m.Shell({ app: newApp }).placeAt("content");
 			});
 		</script>
 	</head>

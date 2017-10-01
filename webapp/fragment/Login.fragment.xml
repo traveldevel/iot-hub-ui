@@ -1,0 +1,28 @@
+<core:FragmentDefinition
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+	<Dialog id="loginDialog" showHeader="true">
+		 <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Text text="{i18n>loginTitle}"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://decline" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <VBox class="sapUiResponsiveMargin">
+                <Label id="usernameLabel" text="{i18n>usernameText}" labelFor="usernameInput"/>
+                <Input id="usernameInput" placeholder="{i18n>usernameInputPlaceholder}"/>
+
+                <Label id="passwordLabel" text="{i18n>passwordText}" labelFor="passwordInput"/>
+                <Input id="passwordInput" type="Password" placeholder="{i18n>passwordInputPlaceholder}"/>
+            </VBox>
+		</content>
+		<buttons>
+			<Button icon="sap-icon://visits" text="{i18n>loginButtonText}" press="onLoginPress"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

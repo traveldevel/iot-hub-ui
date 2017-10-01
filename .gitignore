@@ -19,3 +19,4 @@ dist/model/formatter.js
 dist/i18n/i18n.properties
 dist/css/style.css
 dist/controller/App.controller.js
+dist/

@@ -64,19 +64,19 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "iot.hub.ui.view",
-				"controlId": "app",
+				"controlId": "pageContainer",
 				"controlAggregation": "pages"
 			},
 			"routes": [
 				{
 					"pattern": "",
-					"name": "home",
-					"target": "home"
+					"name": "page1",
+					"target": "page1"
 				}
 			],
 			"targets": {
-				"home": {
-					"viewName": "App"
+				"page1": {
+					"viewName": "Page1"
 				}
 			}
 		},
