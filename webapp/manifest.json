@@ -12,7 +12,6 @@
 		"resources": "resources.json",
 		"ach": "ach"
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -33,7 +32,6 @@
 			"sap_belize"
 		]
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "iot.hub.ui.view.App",
@@ -57,7 +55,7 @@
 				"settings": {
 					"bundleName": "iot.hub.ui.i18n.i18n"
 				}
-			}
+			}						
 		},
 		"routing": {
 			"config": {
