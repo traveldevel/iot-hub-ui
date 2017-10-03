@@ -15,7 +15,8 @@
 				<Button icon="sap-icon://menu2" type="Transparent"/>
 				<Label text="IoT Hub Admin"/>
 				<ToolbarSpacer/>
-				<Button icon="sap-icon://message-popup" type="Transparent" text="Notifications"/>
+				<Button icon="sap-icon://message-popup" type="Transparent" text="{i18n>notificationsButtonText}"/>
+				<Button icon="sap-icon://message-information" type="Transparent" text="{i18n>aboutButtonText}" press="onAboutDialogOpen"/>
 			</tnt:ToolHeader>				
 		</tnt:header>
 		<tnt:sideContent>				
@@ -43,15 +44,7 @@
 			</tnt:SideNavigation>				
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<HBox>
-				<HBox>
-					<Button icon="sap-icon://home" text="Home" type="Transparent"/>
-					<Button text=">" type="Transparent" enabled="false"/>
-				</HBox>	
-				<HBox>
-					<Button icon="sap-icon://washing-machine" text="Devices" type="Transparent"/>
-				</HBox>								
-			</HBox>
+			<core:Fragment fragmentName="iot.hub.ui.fragment.Breadcrumb" type="XML"/>
 			<NavContainer id="pageContainer">
 				<pages></pages>
 			</NavContainer>	

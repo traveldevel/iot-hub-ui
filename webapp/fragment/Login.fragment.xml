@@ -16,8 +16,8 @@
             <VBox class="sapUiResponsiveMargin">
 
                 <Label id="hostLabel" text="{i18n>hostnameText}" labelFor="hostnameSelect"/>
-                <Select id="hostnameSelect" forceSelection="true">
-                    <core:Item key="shared_new" text="https://iothubkafkashared.westeurope.cloudapp.azure.com/MICROSERVICE/"/>
+                <Select id="hostnameSelect" forceSelection="true" items="{tenants>/}">
+                    <core:Item key="{tenants>key}" text="{tenants>name} ({tenants>hostname})"/>
                 </Select>
 
                 <Label id="apikeyLabel" text="{i18n>apikeyText}" labelFor="apikeyInput"/>

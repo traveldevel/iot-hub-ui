@@ -6,8 +6,11 @@ sap.ui.define([
 
 	return BaseController.extend("iot.hub.ui.controller.App", {
 
+		oAboutDialog : null,
 		oLoginDialog : null,
+
 		oLoggedInUser : null,
+		oTenantsModel: null,
 		
 		hostname : '',
 		token : '',
@@ -15,16 +18,27 @@ sap.ui.define([
 
 		onInit : function () {
 			
+			this.oTenantsModel = new sap.ui.model.json.JSONModel();
+			this.oTenantsModel.loadData("tenants.json");
+			this.setModel(this.oTenantsModel, "tenants");
+
+			this.oManifestModel = new sap.ui.model.json.JSONModel();
+			this.oManifestModel.loadData("manifest.json", {}, false);
+
+			this.oAppInfoModel = new sap.ui.model.json.JSONModel();
+			var info = {
+				appVersion: this.oManifestModel.getData()["sap.app"].applicationVersion.version,
+				ui5Version: sap.ui.getCore().getConfiguration().getVersion().toString()
+			};
+			this.oAppInfoModel.setData(info);
+			this.setModel(this.oAppInfoModel, "appInfo");
 		},
 
 		onAfterRendering: function(){
 
+			this.onLoginDialogOpen();
+
 			var oView = this.getView();
-			
-			if (!this.oLoginDialog) {
-				this.oLoginDialog = new sap.ui.xmlfragment(oView.getId(), "iot.hub.ui.fragment.Login", this);
-				oView.addDependent(this.oLoginDialog);
-			}
 
 			if (typeof(Storage) !== "undefined") {
 				
@@ -90,9 +104,18 @@ sap.ui.define([
 			this.oLoginDialog.setBusy(true);
 
 			var oView = this.getView();
+			
+			this.hostname = "";
 
-			// get form values
-			this.hostname = oView.byId("hostnameSelect").getSelectedItem().getText();
+			var sKey = oView.byId("hostnameSelect").getSelectedItem().getKey();
+			var tenants = this.oTenantsModel.getData();
+			for(var idx in tenants){
+				if(sKey === tenants[idx].key){
+					this.hostname = tenants[idx].uri;
+					break;
+				}
+			}
+
 			this.apikey = oView.byId("apikeyInput").getValue();
 			
 			var userName = oView.byId("usernameInput").getValue();
@@ -164,6 +187,6 @@ sap.ui.define([
 					}
 				}
 			});
-		}
+		}		
 	});
 });

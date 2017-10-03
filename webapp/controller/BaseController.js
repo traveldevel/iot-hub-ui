@@ -7,6 +7,7 @@ sap.ui.define([
 
     return Controller.extend("iot.hub.ui.controller.BaseController", {
 
+        // router
         getRouter : function () {
             return this.getOwnerComponent().getRouter();
         },
@@ -23,6 +24,7 @@ sap.ui.define([
             return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
 
+        // nav back
         onNavBack : function() {
             var sPreviousHash = History.getInstance().getPreviousHash();
 
@@ -31,7 +33,36 @@ sap.ui.define([
             } else {
                 this.getRouter().navTo("master", {}, true);
             }
-        }
+        },
+
+        // dialogs 
+		onLoginDialogOpen:  function(oEvent){
+			
+			var oView = this.getView();
+			
+			if (!this.oLoginDialog) {
+				this.oLoginDialog = new sap.ui.xmlfragment(oView.getId(), "iot.hub.ui.fragment.Login", this);
+				oView.addDependent(this.oLoginDialog);
+			}
+						
+			this.oLoginDialog.open();
+		},
+
+		onAboutDialogOpen:  function(oEvent){
+
+			var oView = this.getView();
+			
+			if (!this.oAboutDialog) {
+				this.oAboutDialog = new sap.ui.xmlfragment(oView.getId(), "iot.hub.ui.fragment.About", this);
+				oView.addDependent(this.oAboutDialog);
+			}
+						
+			this.oAboutDialog.open();
+		},
+
+		onAboutDialogClose: function(oEvent){
+			this.oAboutDialog.close();
+		}        
 
     });
 }

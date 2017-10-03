@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+	<Dialog id="aboutDialog" showHeader="true" busyDelayIndicator="1">
+		 <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Text text="{i18n>aboutTitle}"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://decline" press="onAboutDialogClose"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <VBox class="sapUiResponsiveMargin">
+
+                <Label id="appVersionLabel" text="{i18n>aboutAppVersionText}" labelFor="appVersionText"/>
+                <Text id="appVersionText" text="{appInfo>/appVersion}"/>
+                
+                <Text text=""/>
+                
+                <Label id="appUI5VersionLabel" text="{i18n>aboutUI5VersionText}" labelFor="appUI5VersionText"/>
+                <Text id="appUI5VersionText" text="{appInfo>/ui5Version}"/>                
+            </VBox>
+		</content>
+		<buttons>
+			<Button icon="sap-icon://accept" text="{i18n>closeButtonText}" press="onAboutDialogClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
