@@ -1,0 +1,47 @@
+<core:FragmentDefinition
+    xmlns="sap.m" 
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core">    
+    <tnt:SideNavigation expanded="true" itemSelect="onItemSelect">
+        <tnt:NavigationList>
+            <tnt:NavigationListItem text="Users"
+                                    icon="sap-icon://employee"
+                                    expanded="false"
+                                    key="users">
+                <tnt:NavigationListItem text="Add New User" key="add_user" icon="sap-icon://add-employee"/>
+                <tnt:NavigationListItem text="User List" key="users_list"  icon="sap-icon://account"/>
+            </tnt:NavigationListItem>
+            <tnt:NavigationListItem text="Projects"
+                                    icon="sap-icon://project-definition-triangle"
+                                    expanded="false"
+                                    key="projects">
+                <tnt:NavigationListItem text="Add New Project" key="add_project" icon="sap-icon://add"/>
+                <tnt:NavigationListItem text="Project List" key="projects_list" icon="sap-icon://menu"/>
+            </tnt:NavigationListItem>    
+            <tnt:NavigationListItem text="Device Groups"
+                                    icon="sap-icon://group"
+                                    expanded="false"
+                                    key="groups">
+                <tnt:NavigationListItem text="Add New Group" key="add_group" icon="sap-icon://add"/>
+                <tnt:NavigationListItem text="Groups List" key="groups_list" icon="sap-icon://menu"/>
+            </tnt:NavigationListItem>      
+            <tnt:NavigationListItem text="Devices"
+                                    icon="sap-icon://washing-machine"
+                                    expanded="false"
+                                    key="groups">
+                <tnt:NavigationListItem text="Add New Device" key="add_device" icon="sap-icon://add"/>
+                <tnt:NavigationListItem text="Devices List" key="devices_list" icon="sap-icon://menu"/>
+            </tnt:NavigationListItem>     
+            <tnt:NavigationListItem text="Events List" key="events_list" icon="sap-icon://alert"/>
+            <tnt:NavigationListItem text="Locations List" key="locations_list" icon="sap-icon://map-2"/>
+            <tnt:NavigationListItem text="Raw Data List" key="rawdata_list" icon="sap-icon://syntax"/>
+        </tnt:NavigationList>
+        <tnt:fixedItem>
+            <tnt:NavigationList>
+                <tnt:NavigationListItem text="Account" icon="sap-icon://account"/>
+                <tnt:NavigationListItem text="App Help" icon="sap-icon://sys-help"/>
+                <tnt:NavigationListItem text="Logout" icon="sap-icon://log"/>
+            </tnt:NavigationList>
+        </tnt:fixedItem>
+    </tnt:SideNavigation>	
+</core:FragmentDefinition>
