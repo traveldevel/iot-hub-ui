@@ -74,12 +74,12 @@
 				{
 					"pattern": "userAdd",
 					"name": "userAdd",
-					"target": "UserAdd"
+					"target": "userAdd"
 				},
 				{
 					"pattern": "userList",
 					"name": "userList",
-					"target": "UserList"
+					"target": "userList"
 				}								
 			],
 			"targets": {
