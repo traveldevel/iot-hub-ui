@@ -63,37 +63,31 @@ sap.ui.define([
 		createAllODataModels: function(){
 
 			// create rawdata model
-			var sRawUrl = this.hostname.replace("MICROSERVICE", "rawdata") + "?api_key=" + this.apikey;
-			var oRawModel = new sap.ui.model.odata.ODataModel(sRawUrl, {
-				loadMetadataAsync: true,
-				json: true,
-				headers:{
-					"Authorization" : "Basic " + this.token
-				}
+			var sRawUrl = this.hostname.replace("MICROSERVICE", "rawdata") + "/?api_key=" + this.apikey;
+			
+			var oRawModel = new sap.ui.model.odata.v4.ODataModel({
+				serviceUrl: sRawUrl,
+				synchronizationMode: "None"
 			});
 
 			this.setModel(oRawModel, "rawdata");
 
 			// create event model
-			var sEventUrl = this.hostname.replace("MICROSERVICE", "event") + "?api_key=" + this.apikey;
-			var oEventModel = new sap.ui.model.odata.ODataModel(sEventUrl, {
-				loadMetadataAsync: true,
-				json: true,
-				headers:{
-					"Authorization" : "Basic " + this.token
-				}
+			var sEventUrl = this.hostname.replace("MICROSERVICE", "event") + "/?api_key=" + this.apikey;
+
+			var oEventModel = new sap.ui.model.odata.v4.ODataModel({
+				serviceUrl: sEventUrl,
+				synchronizationMode: "None"
 			});
 
 			this.setModel(oEventModel, "event");			
 
 			// create location model
-			var sLocUrl = this.hostname.replace("MICROSERVICE", "location") + "?api_key=" + this.apikey;
-			var oLocationModel = new sap.ui.model.odata.ODataModel(sLocUrl, {
-				loadMetadataAsync: true,
-				json: true,
-				headers:{
-					"Authorization" : "Basic " + this.token
-				}
+			var sLocUrl = this.hostname.replace("MICROSERVICE", "location") + "/?api_key=" + this.apikey;
+
+			var oLocationModel = new sap.ui.model.odata.v4.ODataModel({
+				serviceUrl: sLocUrl,
+				synchronizationMode: "None"
 			});
 
 			this.setModel(oLocationModel, "location");			
@@ -133,60 +127,45 @@ sap.ui.define([
 			}
 
 			// create metadata model
-			var sMetadataUrl = this.hostname.replace("MICROSERVICE", "metadata") + "?api_key=" + this.apikey;
-			var oMetadataModel = new sap.ui.model.odata.ODataModel(sMetadataUrl, {
-				loadMetadataAsync: true,
-				json: true,
-				headers:{
-					"Authorization" : "Basic " + this.token
-				}
+			var sMetadataUrl = this.hostname.replace("MICROSERVICE", "metadata") + "/?api_key=" + this.apikey;
+			var oMetadataModel = new sap.ui.model.odata.v4.ODataModel({
+				serviceUrl: sMetadataUrl,
+				synchronizationMode: "None"
 			});
 
 			this.setModel(oMetadataModel, "metadata");
 
-			// get user
-			var aFilters  = new Array();
+			// get user		
+			var userModel = new sap.ui.model.json.JSONModel();
 
-			aFilters.push(new sap.ui.model.Filter({
-					path: "name",
-					operator: sap.ui.model.FilterOperator.EQ,
-					value1: "'" + userName + "'"
-			}));
-
-			aFilters.push(new sap.ui.model.Filter({
-				path: "password",
-				operator: sap.ui.model.FilterOperator.EQ,
-				value1: "'" + password + "'"
-			}));			
+			const sUrl = this.hostname.replace("MICROSERVICE", "metadata") + "/user?api_key=" + this.apikey + "&$filter=name eq '" + userName + "' and password eq '" + password + "'";
 
 			var that = this;
 
-			oMetadataModel.read("/user", {
-				async: true, 
-				filters : aFilters,
-				error: function(err){
-					console.log(err);
-				},
-				success: function(oData, oResp){
+			userModel.attachRequestCompleted(function(data){
+				
+				var oData = userModel.getData();
+				
+				that.oLoginDialog.setBusy(false);
+				
+				if(oData.value.length > 0){
+	
+					that.oLoginDialog.close();
 					
-					if(!oData){
-						oData = JSON.parse(oResp.body);
-					}
-
-					if(oData.value.length > 0 && oData.value[0]._id.length > 0){
-						
-						that.oLoginDialog.setBusy(false);
-						that.oLoginDialog.close();
-						
-						that.oLoggedInUser = oData.value[0];
-						console.log(that.oLoggedInUser);
-
-						MessageToast.show("Login Ok");
-
-						that.createAllODataModels();
-					}
+					that.oLoggedInUser = oData.value[0];
+					console.log(that.oLoggedInUser);
+	
+					MessageToast.show("Login Ok");
+	
+					that.createAllODataModels();
 				}
+				else
+				{
+					MessageToast.show("Login Error !");	
+				}		
 			});
+
+			userModel.loadData(sUrl, {}, true);	
 		}		
 	});
 });

@@ -3,6 +3,6 @@
         "key": "shared_new",
         "name" : "Shared -> New",
         "hostname" : "iothubkafkashared.westeurope.cloudapp.azure.com",
-        "uri" : "https://iothubkafkashared.westeurope.cloudapp.azure.com/MICROSERVICE/"
+        "uri" : "https://iothubkafkashared.westeurope.cloudapp.azure.com/MICROSERVICE"
     }
 ]
