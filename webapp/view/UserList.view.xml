@@ -11,7 +11,7 @@
                     height="100%">
                     <content>
                         <Table
-                            id="table"
+                            id="userTable"
                             items="{metadata>/user}"
                             visibleRowCount="15">
                             <headerToolbar>
@@ -31,13 +31,25 @@
                                 </Toolbar>
                             </headerToolbar>
                             <columns>
-                                <Column width="11rem">
-                                    <Text text="{metadata>lastname}" />
+                                <Column>
+                                    <Text text="{i18n>name}" />
                                 </Column>
-                                <Column width="11rem">
-                                    <Text text="{metadata>firstname}" />
+                                <Column>
+                                    <Text text="{i18n>firstname}" />
                                 </Column>  
+                                <Column>
+                                    <Text text="{i18n>lastname}" />
+                                </Column>                                 
                             </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{metadata>name}" />
+                                        <Text text="{metadata>name}" />
+                                        <Text text="{metadata>name}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>                                    
                         </Table>
                     </content>
             </ScrollContainer>
