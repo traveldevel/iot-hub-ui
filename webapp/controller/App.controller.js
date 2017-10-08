@@ -96,7 +96,7 @@ sap.ui.define([
 				}
 			});
 
-			this.setModel(oLocationModel, "event");			
+			this.setModel(oLocationModel, "location");			
 		},
 
 		onLoginPress: function(oEvent){

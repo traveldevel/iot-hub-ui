@@ -2,7 +2,7 @@
 	controllerName="iot.hub.ui.controller.UserList"
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true"
-	xmlns="sap.m">
+    xmlns="sap.m">
     <Page showHeader="false">
         <content>
             <ScrollContainer
@@ -10,7 +10,35 @@
                     vertical="true"
                     height="100%">
                     <content>
-                        <Text text="User List"/>
+                        <Table
+                            id="table"
+                            items="{metadata>/user}"
+                            visibleRowCount="15">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title id="title" text="User List"/>
+                                    <ToolbarSpacer/>
+                                    <Button
+                                        icon="sap-icon://decline"
+                                        tooltip="Clear all filters"
+                                        press="clearAllFilters"/>
+                                    <ToolbarSeparator/>
+                                    <SearchField
+                                        placeholder="Filter"
+                                        value="{ui>/globalFilter}"
+                                        search="filterUserList"
+                                        width="15rem"/>
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="11rem">
+                                    <Text text="{metadata>lastname}" />
+                                </Column>
+                                <Column width="11rem">
+                                    <Text text="{metadata>firstname}" />
+                                </Column>  
+                            </columns>
+                        </Table>
                     </content>
             </ScrollContainer>
         </content>
