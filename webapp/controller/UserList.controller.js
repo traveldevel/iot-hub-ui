@@ -6,7 +6,7 @@ sap.ui.define([
 	return BaseController.extend("iot.hub.ui.controller.UserList", {
 
 		onInit : function () {
-
+			this.setModel(this.getGlobalModel("metadata"), "metadata");
 		}
 		
 	});

@@ -20,6 +20,14 @@ sap.ui.define([
             return this.getView().setModel(oModel, sName);
         },
 
+        getGlobalModel : function (sName) {
+            return sap.ui.getCore().getModel(sName);
+        },
+
+        setGlobalModel : function (oModel, sName) {
+            return sap.ui.getCore().setModel(oModel, sName);
+        },        
+
         getResourceBundle : function () {
             return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },

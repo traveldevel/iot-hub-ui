@@ -70,7 +70,7 @@ sap.ui.define([
 				synchronizationMode: "None"
 			});
 
-			this.setModel(oRawModel, "rawdata");
+			this.setGlobalModel(oRawModel, "rawdata");
 
 			// create event model
 			var sEventUrl = this.hostname.replace("MICROSERVICE", "event") + "/?api_key=" + this.apikey;
@@ -80,7 +80,7 @@ sap.ui.define([
 				synchronizationMode: "None"
 			});
 
-			this.setModel(oEventModel, "event");			
+			this.setGlobalModel(oEventModel, "event");			
 
 			// create location model
 			var sLocUrl = this.hostname.replace("MICROSERVICE", "location") + "/?api_key=" + this.apikey;
@@ -90,7 +90,7 @@ sap.ui.define([
 				synchronizationMode: "None"
 			});
 
-			this.setModel(oLocationModel, "location");			
+			this.setGlobalModel(oLocationModel, "location");			
 		},
 
 		onLoginPress: function(oEvent){
@@ -133,7 +133,7 @@ sap.ui.define([
 				synchronizationMode: "None"
 			});
 
-			this.setModel(oMetadataModel, "metadata");
+			this.setGlobalModel(oMetadataModel, "metadata");
 
 			// get user		
 			var userModel = new sap.ui.model.json.JSONModel();
