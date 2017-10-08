@@ -7,34 +7,38 @@
             <tnt:NavigationListItem text="Users"
                                     icon="sap-icon://employee"
                                     expanded="false"
-                                    key="users">
-                <tnt:NavigationListItem text="Add New User" key="add_user" icon="sap-icon://add-employee"/>
-                <tnt:NavigationListItem text="User List" key="users_list"  icon="sap-icon://account"/>
+                                    key="users"
+                                    select="onUserListPress">
+                <tnt:NavigationListItem text="Add New User" key="add_user" icon="sap-icon://add-employee" select="onUserAddPress"/>
+                <tnt:NavigationListItem text="User List" key="users_list"  icon="sap-icon://account" select="onUserListPress"/>
             </tnt:NavigationListItem>
             <tnt:NavigationListItem text="Projects"
                                     icon="sap-icon://project-definition-triangle"
                                     expanded="false"
-                                    key="projects">
-                <tnt:NavigationListItem text="Add New Project" key="add_project" icon="sap-icon://add"/>
-                <tnt:NavigationListItem text="Project List" key="projects_list" icon="sap-icon://menu"/>
+                                    key="projects"
+                                    select="onProjectListPress">
+                <tnt:NavigationListItem text="Add New Project" key="add_project" icon="sap-icon://add" select="onProjectAddPress"/>
+                <tnt:NavigationListItem text="Project List" key="projects_list" icon="sap-icon://menu" select="onProjectListPress"/>
             </tnt:NavigationListItem>    
             <tnt:NavigationListItem text="Device Groups"
                                     icon="sap-icon://group"
                                     expanded="false"
-                                    key="groups">
-                <tnt:NavigationListItem text="Add New Group" key="add_group" icon="sap-icon://add"/>
-                <tnt:NavigationListItem text="Groups List" key="groups_list" icon="sap-icon://menu"/>
+                                    key="groups"
+                                    select="onGroupAddPress">
+                <tnt:NavigationListItem text="Add New Group" key="add_group" icon="sap-icon://add" select="onProjectAddPress"/>
+                <tnt:NavigationListItem text="Groups List" key="groups_list" icon="sap-icon://menu" select="onProjectListPress"/>
             </tnt:NavigationListItem>      
             <tnt:NavigationListItem text="Devices"
                                     icon="sap-icon://washing-machine"
                                     expanded="false"
-                                    key="groups">
-                <tnt:NavigationListItem text="Add New Device" key="add_device" icon="sap-icon://add"/>
-                <tnt:NavigationListItem text="Devices List" key="devices_list" icon="sap-icon://menu"/>
+                                    key="groups"
+                                    select="onDeviceListPress">
+                <tnt:NavigationListItem text="Add New Device" key="add_device" icon="sap-icon://add" select="onDeviceAddPress"/>
+                <tnt:NavigationListItem text="Devices List" key="devices_list" icon="sap-icon://menu" select="onDeviceListPress"/>
             </tnt:NavigationListItem>     
-            <tnt:NavigationListItem text="Events List" key="events_list" icon="sap-icon://alert"/>
-            <tnt:NavigationListItem text="Locations List" key="locations_list" icon="sap-icon://map-2"/>
-            <tnt:NavigationListItem text="Raw Data List" key="rawdata_list" icon="sap-icon://syntax"/>
+            <tnt:NavigationListItem text="Events List" key="events_list" icon="sap-icon://alert" select="onEventListPress"/>
+            <tnt:NavigationListItem text="Locations List" key="locations_list" icon="sap-icon://map-2" select="onLocationListPress"/>
+            <tnt:NavigationListItem text="Raw Data List" key="rawdata_list" icon="sap-icon://syntax" select="onRawdataListPress"/>
         </tnt:NavigationList>
         <tnt:fixedItem>
             <tnt:NavigationList>

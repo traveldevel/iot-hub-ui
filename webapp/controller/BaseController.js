@@ -62,8 +62,57 @@ sap.ui.define([
 
 		onAboutDialogClose: function(oEvent){
 			this.oAboutDialog.close();
-		}        
+        },
+        
+        // menu actions
+        onUserListPress: function(oEvent){
+            console.log("user list");
+            
+            var oRouter = this.getRouter();
+            oRouter.navTo("userList");
+        },     
 
+        onUserAddPress: function(oEvent){
+            console.log("user add");
+
+            var oRouter = this.getRouter();
+            oRouter.navTo("userAdd");            
+        },
+
+        onProjectListPress: function(oEvent){
+            console.log("project list");
+        },
+
+        onProjectAddPress: function(oEvent){
+            console.log("project add");
+        },      
+        
+        onGroupListPress: function(oEvent){
+            console.log("group list");
+        },
+
+        onGroupAddPress: function(oEvent){
+            console.log("group add");
+        },    
+        
+        onDeviceListPress: function(oEvent){
+            console.log("device list");
+        },
+
+        onDeviceAddPress: function(oEvent){
+            console.log("device add");
+        },           
+
+        onEventListPress: function(oEvent){
+            console.log("event list");
+        },
+
+        onLocationListPress: function(oEvent){
+            console.log("location list");
+        },
+        
+        onRawdataListPress: function(oEvent){
+            console.log("rawdata list");
+        }
     });
-}
-);
+});

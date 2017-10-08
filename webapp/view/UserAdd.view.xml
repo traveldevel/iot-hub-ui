@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="iot.hub.ui.controller.Page1"
+	controllerName="iot.hub.ui.controller.UserAdd"
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true"
 	xmlns="sap.m">
@@ -10,7 +10,7 @@
                     vertical="true"
                     height="100%">
                     <content>
-                        <Text text="Text 1"/>
+                        <Text text="User Add"/>
                     </content>
             </ScrollContainer>
         </content>

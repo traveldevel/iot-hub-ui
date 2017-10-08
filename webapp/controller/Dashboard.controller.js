@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("iot.hub.ui.controller.Page1", {
+	return BaseController.extend("iot.hub.ui.controller.Dashboard", {
 
 		onInit : function () {
 

@@ -68,14 +68,30 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "page1",
-					"target": "page1"
-				}
+					"name": "dashboard",
+					"target": "dashboard"
+				},
+				{
+					"pattern": "userAdd",
+					"name": "userAdd",
+					"target": "UserAdd"
+				},
+				{
+					"pattern": "userList",
+					"name": "userList",
+					"target": "UserList"
+				}								
 			],
 			"targets": {
-				"page1": {
-					"viewName": "Page1"
-				}
+				"dashboard": {
+					"viewName": "Dashboard"
+				},
+				"userAdd": {
+					"viewName": "UserAdd"
+				},
+				"userList": {
+					"viewName": "UserList"
+				}				
 			}
 		},
 		"resources": {
