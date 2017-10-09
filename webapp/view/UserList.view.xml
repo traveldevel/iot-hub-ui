@@ -39,14 +39,18 @@
                                 </Column>  
                                 <Column>
                                     <Text text="{i18n>lastname}" />
-                                </Column>                                 
+                                </Column>
+                                <Column></Column>
+                                <Column></Column>
                             </columns>
                             <items>
                                 <ColumnListItem>
                                     <cells>
                                         <Text text="{metadata>name}" />
-                                        <Text text="{metadata>name}" />
-                                        <Text text="{metadata>name}" />
+                                        <Text text="{metadata>firstname}" />
+                                        <Text text="{metadata>lastname}" />
+                                        <Button icon="sap-icon://edit" press="onUserEditPress"/>
+                                        <Button icon="sap-icon://delete" press="onUserDeletePress"/>
                                     </cells>
                                 </ColumnListItem>
                             </items>                                    

@@ -67,7 +67,8 @@ sap.ui.define([
 			
 			var oRawModel = new sap.ui.model.odata.v4.ODataModel({
 				serviceUrl: sRawUrl,
-				synchronizationMode: "None"
+				synchronizationMode: "None",
+				groupId: "$direct"
 			});
 
 			this.setGlobalModel(oRawModel, "rawdata");
@@ -77,7 +78,8 @@ sap.ui.define([
 
 			var oEventModel = new sap.ui.model.odata.v4.ODataModel({
 				serviceUrl: sEventUrl,
-				synchronizationMode: "None"
+				synchronizationMode: "None",
+				groupId: "$direct"
 			});
 
 			this.setGlobalModel(oEventModel, "event");			
@@ -87,7 +89,8 @@ sap.ui.define([
 
 			var oLocationModel = new sap.ui.model.odata.v4.ODataModel({
 				serviceUrl: sLocUrl,
-				synchronizationMode: "None"
+				synchronizationMode: "None",
+				groupId: "$direct"
 			});
 
 			this.setGlobalModel(oLocationModel, "location");			
@@ -130,7 +133,8 @@ sap.ui.define([
 			var sMetadataUrl = this.hostname.replace("MICROSERVICE", "metadata") + "/?api_key=" + this.apikey;
 			var oMetadataModel = new sap.ui.model.odata.v4.ODataModel({
 				serviceUrl: sMetadataUrl,
-				synchronizationMode: "None"
+				synchronizationMode: "None",
+				groupId: "$direct"
 			});
 
 			this.setGlobalModel(oMetadataModel, "metadata");
