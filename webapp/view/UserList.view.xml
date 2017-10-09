@@ -12,6 +12,7 @@
                     <content>
                         <Table
                             id="userTable"
+                            inset="false"
                             items="{metadata>/user}"
                             visibleRowCount="15">
                             <headerToolbar>
@@ -40,17 +41,13 @@
                                 <Column>
                                     <Text text="{i18n>lastname}" />
                                 </Column>
-                                <Column></Column>
-                                <Column></Column>
                             </columns>
                             <items>
-                                <ColumnListItem>
+                                <ColumnListItem vAlign="Middle" type="Navigation">
                                     <cells>
-                                        <Text text="{metadata>name}" />
-                                        <Text text="{metadata>firstname}" />
-                                        <Text text="{metadata>lastname}" />
-                                        <Button icon="sap-icon://edit" press="onUserEditPress"/>
-                                        <Button icon="sap-icon://delete" press="onUserDeletePress"/>
+                                        <Text text="{metadata>name}"/>
+                                        <Text text="{metadata>firstname}"/>
+                                        <Text text="{metadata>lastname}"/>
                                     </cells>
                                 </ColumnListItem>
                             </items>                                    
