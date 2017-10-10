@@ -7,6 +7,10 @@ sap.ui.define([
 
 		onInit : function () {
 
+		},
+
+		onSaveUserPress : function(oEvent){
+			console.log('save user');
 		}
 		
 	});
