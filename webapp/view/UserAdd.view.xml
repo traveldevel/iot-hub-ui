@@ -6,7 +6,7 @@
     xmlns:core="sap.ui.core"
 	xmlns:f="sap.ui.layout.form"
 	displayBlock="true">
-    <Page showHeader="false">
+    <Page id="createUserPage" showHeader="false" busyIndicatorDelay="1">
         <content>
             <ScrollContainer
                     horizontal="false"
@@ -38,17 +38,17 @@
                                     <f:formElements>
                                         <f:FormElement label="{i18n>usernameText}">
                                             <f:fields>
-                                                <Input id="username" value="{name}"/>
+                                                <Input id="username" value="" required="true"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="{i18n>firstnameText}">
                                             <f:fields>
-                                                <Input id="firstname" value="{firstname}"/>
+                                                <Input id="firstname" value="" required="true"/>
                                             </f:fields>
                                         </f:FormElement>
                                         <f:FormElement label="{i18n>lastnameText}">
                                             <f:fields>
-                                                <Input id="lastname" value="{lastname}"/>
+                                                <Input id="lastname" value="" required="true"/>
                                             </f:fields>
                                         </f:FormElement>
                                     </f:formElements>

@@ -14,12 +14,13 @@ sap.ui.define([
 		
 		hostname : '',
 		token : '',
-		apikey : '',
+		apikey : '',		
 
 		onInit : function () {
 			
 			this.oTenantsModel = new sap.ui.model.json.JSONModel();
 			this.oTenantsModel.loadData("tenants.json");
+			this.setGlobalModel(this.oTenantsModel, "tenants");
 			this.setModel(this.oTenantsModel, "tenants");
 
 			this.oManifestModel = new sap.ui.model.json.JSONModel();
