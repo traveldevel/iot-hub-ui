@@ -110,6 +110,8 @@ sap.ui.define([
 				var sUrl = this.hostname.replace("MICROSERVICE", "metadata") + "/user?api_key=" + this.apikey;
 				console.log(sUrl);
 
+				var that = this;
+
 				$.ajax({
 					type: "POST",
 					url: sUrl,
@@ -119,6 +121,8 @@ sap.ui.define([
 					success: function(data){
 						console.log(data);
 						oPage.setBusy(false);
+
+						that.getRouter().navTo("userList");
 					},
 					failure: function(errMsg) {
 						alert(errMsg);
