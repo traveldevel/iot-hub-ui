@@ -1,6 +1,7 @@
 <mvc:View
-	controllerName="iot.hub.ui.controller.UserList"
+	controllerName="iot.hub.ui.controller.RawDataList"
 	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	displayBlock="true"
     xmlns="sap.m">
     <Page showHeader="false">
@@ -11,13 +12,13 @@
                     height="100%">
                     <content>
                         <Table
-                            id="userTable"
+                            id="rawdataTable"
                             inset="false"
-                            items="{metadata>/user}"
+                            items="{rawdata>/raw_data}"
                             visibleRowCount="15">
                             <headerToolbar>
                                 <Toolbar>
-                                    <Title id="title" text="User List"/>
+                                    <Title id="title" text="Raw Data List"/>
                                     <ToolbarSpacer/>
                                     <Button
                                         icon="sap-icon://decline"
@@ -27,27 +28,38 @@
                                     <SearchField
                                         placeholder="Filter"
                                         value="{ui>/globalFilter}"
-                                        search="filterUserList"
+                                        search="filterRawDataList"
                                         width="15rem"/>
                                 </Toolbar>
                             </headerToolbar>
                             <columns>
                                 <Column>
-                                    <Text text="{i18n>name}" />
+                                    <Text text="{i18n>createdAtText}" />
                                 </Column>
                                 <Column>
-                                    <Text text="{i18n>firstname}" />
+                                    <Text text="{i18n>deviceText}" />
                                 </Column>  
                                 <Column>
-                                    <Text text="{i18n>lastname}" />
+                                    <Text text="{i18n>groupText}" />
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>projectText}" />
+                                </Column>                                                                  
+                                <Column>
                                 </Column>
                             </columns>
                             <items>
-                                <ColumnListItem vAlign="Middle" type="Navigation" press="handleUserPress">
+                                <ColumnListItem vAlign="Middle" press="handleRawDatasPress">
                                     <cells>
-                                        <Text text="{metadata>name}"/>
-                                        <Text text="{metadata>firstname}"/>
-                                        <Text text="{metadata>lastname}"/>
+                                        <Text text="{
+                                            path: 'rawdata>created_at',
+                                            type: 'sap.ui.model.type.String',
+                                            formatter: '.formatDate'
+                                        }"/>
+                                        <Text text="{rawdata>device_id}"/>
+                                        <Text text="{rawdata>group_id}"/>
+                                        <Text text="{rawdata>project_id}"/>
+                                        <Button text="{i18n>valuesText}" press="onValuesPress" app:RawDataId="{rawdata>_id}"/>
                                     </cells>
                                 </ColumnListItem>
                             </items>                                    

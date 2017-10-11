@@ -121,6 +121,9 @@ sap.ui.define([
         
         onRawdataListPress: function(oEvent){
             console.log("rawdata list");
+
+            var oRouter = this.getRouter();
+            oRouter.navTo("rawdataList");
         }
     });
 });

@@ -77,10 +77,20 @@
 					"target": "userAdd"
 				},
 				{
+					"pattern": "userEdit/{id}",
+					"name": "userEdit",
+					"target": "userEdit"
+				},				
+				{
 					"pattern": "userList",
 					"name": "userList",
 					"target": "userList"
-				}								
+				},
+				{
+					"pattern": "rawdataList",
+					"name": "rawdataList",
+					"target": "rawdataList"
+				}							
 			],
 			"targets": {
 				"dashboard": {
@@ -89,9 +99,15 @@
 				"userAdd": {
 					"viewName": "UserAdd"
 				},
+				"userEdit": {
+					"viewName": "UserEdit"
+				},				
 				"userList": {
 					"viewName": "UserList"
-				}				
+				},
+				"rawdataList": {
+					"viewName": "RawDataList"
+				}							
 			}
 		},
 		"resources": {
