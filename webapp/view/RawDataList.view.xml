@@ -14,36 +14,57 @@
                         <Table
                             id="rawdataTable"
                             inset="false"
-                            items="{rawdata>/raw_data}"
+                            items="{rawdatajson>/value}"
+                            growing="true"
                             visibleRowCount="15">
                             <headerToolbar>
                                 <Toolbar>
-                                    <Title id="title" text="Raw Data List"/>
+                                    <Title id="title" text="{i18n>rawdataListText}"/>
                                     <ToolbarSpacer/>
-                                    <Button
-                                        icon="sap-icon://decline"
-                                        tooltip="Clear all filters"
-                                        press="clearAllFilters"/>
+                                    <Label text="{i18n>periodText}" labelFor="rawdataDateRange"/>
+                                    <DateRangeSelection
+                                        id="rawdataDateRange"
+                                        displayFormat="dd/MM/yyyy"
+                                        width="15rem"
+                                        change="handleChange"/>
                                     <ToolbarSeparator/>
                                     <SearchField
-                                        placeholder="Filter"
-                                        value="{ui>/globalFilter}"
-                                        search="filterRawDataList"
-                                        width="15rem"/>
+                                        id="rawdataSearchField"
+                                        placeholder="{i18n>searchText}"                                        
+                                        enableSuggestions="true"
+                                        suggestionItems="{
+                                            path: '/ProductCollection',
+                                            sorter: { path: 'Name' }
+                                        }"
+                                        search="onSearch"
+                                        suggest="onSuggest"                                     
+                                        width="15rem">
+                                        <suggestionItems>
+                                            <SuggestionItem key="{ProductId}" text="{Name}" description="{path:'Price'} {path:'CurrencyCode'}" />
+                                        </suggestionItems>     
+                                    </SearchField>                                   
+                                    <Button
+                                        icon="sap-icon://decline"
+                                        tooltip="{i18n>clearFilterText}"
+                                        press="clearAllFilters"/>
+                                    <Button
+                                        icon="sap-icon://accept"
+                                        tooltip="{i18n>applyFilterText}"
+                                        press="applyAllFilters"/>                                                                                
                                 </Toolbar>
                             </headerToolbar>
                             <columns>
-                                <Column>
-                                    <Text text="{i18n>createdAtText}" />
+                                <Column hAlign="Center" vAlign="Middle">
+                                    <Text text="{i18n>createdAtText}" width="100%"/>
                                 </Column>
-                                <Column>
-                                    <Text text="{i18n>deviceText}" />
+                                <Column hAlign="Center" vAlign="Middle">
+                                    <Text text="{i18n>deviceText}" width="100%"/>
                                 </Column>  
-                                <Column>
-                                    <Text text="{i18n>groupText}" />
+                                <Column hAlign="Center" vAlign="Middle">
+                                    <Text text="{i18n>groupText}" width="100%"/>
                                 </Column>
-                                <Column>
-                                    <Text text="{i18n>projectText}" />
+                                <Column hAlign="Center" vAlign="Middle">
+                                    <Text text="{i18n>projectText}" width="100%"/>
                                 </Column>                                                                  
                                 <Column>
                                 </Column>
@@ -52,14 +73,14 @@
                                 <ColumnListItem vAlign="Middle" press="handleRawDatasPress">
                                     <cells>
                                         <Text text="{
-                                            path: 'rawdata>created_at',
+                                            path: 'rawdatajson>created_at',
                                             type: 'sap.ui.model.type.String',
                                             formatter: '.formatDate'
                                         }"/>
-                                        <Text text="{rawdata>device_id}"/>
-                                        <Text text="{rawdata>group_id}"/>
-                                        <Text text="{rawdata>project_id}"/>
-                                        <Button text="{i18n>valuesText}" press="onValuesPress" app:RawDataId="{rawdata>_id}"/>
+                                        <Text text="{rawdatajson>device_id}"/>
+                                        <Text text="{rawdatajson>group_id}"/>
+                                        <Text text="{rawdatajson>project_id}"/>
+                                        <Button text="{i18n>valuesText}" press="onValuesPress" app:RawDataId="{rawdatajson>_id}"/>
                                     </cells>
                                 </ColumnListItem>
                             </items>                                    
